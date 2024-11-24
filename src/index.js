@@ -1,3 +1,3 @@
-export default () => {
-  console.log('Welcome!');
-};
+import genDiff from './genDiff.js';
+
+export default genDiff;
