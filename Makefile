@@ -9,4 +9,4 @@ publish:
 	npm publish --dry-run
 
 gendiff: # Запуск приложения
-	node bind/gendiff.js
+	node bin/gendiff.js
