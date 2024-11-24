@@ -11,6 +11,8 @@ program
   .version('1.0.0');
 
 program
+  .arguments('<filepath1> <filepath2>')
+  .option('-f, --format <type>', 'output format')
   .action(() => {
     genDiff();
   });
