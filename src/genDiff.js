@@ -1,9 +1,4 @@
-import parseFile from './utils/fileParser.js';
-
-const genDiff = (filepath1, filepath2) => {
-  const data1 = parseFile(filepath1);
-  const data2 = parseFile(filepath2);
-
+const genDiff = (data1, data2) => {
   const keys = [...new Set([...Object.keys(data1), ...Object.keys(data2)])].sort();
 
   const result = keys.map((key) => {
