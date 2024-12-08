@@ -8,6 +8,16 @@ test('correctly parses valid JSON content', () => {
   expect(parseData(content, '.json')).toEqual(expected);
 });
 
+test('correctly parses valid YAML content', () => {
+  const content = 'key: value\nnumber: 10';
+  const expected = {
+    key: "value",
+    number: 10,
+  };
+
+  expect(parseData(content, '.yml')).toEqual(expected);
+});
+
 test('throws error for unsupported file format', () => {
   const content = 'some text';
   const format = '.txt';
