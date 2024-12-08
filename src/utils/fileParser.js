@@ -1,16 +1,13 @@
 import fs from 'fs';
 import path from 'path';
+import parseData from './dataParser.js';
 
-export default function parseFile(filepath) {
+const parseFile = (filepath) => {
   const absolutePath = path.resolve(process.cwd(), filepath);
-  const extname = path.extname(absolutePath);
-
   const content = fs.readFileSync(absolutePath, 'utf-8');
+  const format = path.extname(filepath);
 
-  switch (extname) {
-    case '.json':
-      return JSON.parse(content);
-    default:
-      throw new Error(`Unsupported file format: ${extname}`);
-  }
-}
+  return parseData(content, format);
+};
+
+export default parseFile;
