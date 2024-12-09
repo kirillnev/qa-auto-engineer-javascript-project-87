@@ -1,7 +1,9 @@
-const genDiff = (data1, data2, formatFunction) => {
+import parseFile from './utils/fileParser.js';
 
-  console.log(`data1\n ${JSON.stringify(data1)}`);
-  console.log(`data2\n ${JSON.stringify(data2)}`);
+const genDiff = (filepath1, filepath2, formatFunction) => {
+  const data1 = parseFile(filepath1);
+  const data2 = parseFile(filepath2);
+
   const keys = [...new Set([...Object.keys(data1), ...Object.keys(data2)])].sort();
 
   const diff = keys.map((key) => {
