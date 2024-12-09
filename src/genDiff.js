@@ -1,4 +1,12 @@
 const genDiff = (data1, data2, formatFunction) => {
+  if (typeof data1 !== 'object' || data1 === null) {
+    throw new TypeError('data1 must be a non-null object');
+  }
+
+  if (typeof data2 !== 'object' || data2 === null) {
+    throw new TypeError('data2 must be a non-null object');
+  }
+
   const keys = [...new Set([...Object.keys(data1), ...Object.keys(data2)])].sort();
 
   const diff = keys.map((key) => {
