@@ -8,13 +8,21 @@ const genDiff = (filepath1, filepath2, format = 'stylish') => {
   const formatFunction = getFormatter(format);
 
   const lexicographicSort = (arr) => {
-    if (arr.length <= 1) return arr;
-    const [pivot, ...rest] = arr;
-    return [
-      ...lexicographicSort(rest.filter((item) => item < pivot)),
-      pivot,
-      ...lexicographicSort(rest.filter((item) => item >= pivot)),
-    ];
+    const sortedArr = [];
+    for (const item of arr) {
+      let inserted = false;
+      for (let i = 0; i < sortedArr.length; i++) {
+        if (item < sortedArr[i]) {
+          sortedArr.splice(i, 0, item);
+          inserted = true;
+          break;
+        }
+      }
+      if (!inserted) {
+        sortedArr.push(item);
+      }
+    }
+    return sortedArr;
   };
 
   const keys = lexicographicSort([...new Set([...Object.keys(data1), ...Object.keys(data2)])]);
