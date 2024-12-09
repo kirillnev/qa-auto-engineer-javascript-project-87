@@ -7,27 +7,7 @@ const genDiff = (filepath1, filepath2, format = 'stylish') => {
 
   const formatFunction = getFormatter(format);
 
-  const lexicographicSort = (arr) => {
-    const sortedArr = [];
-    for (const item of arr) {
-      let inserted = false;
-      for (let i = 0; i < sortedArr.length; i++) {
-        if (item < sortedArr[i]) {
-          sortedArr.splice(i, 0, item);
-          inserted = true;
-          break;
-        }
-      }
-      if (!inserted) {
-        sortedArr.push(item);
-      }
-    }
-    return sortedArr;
-  };
-
-  const keys = lexicographicSort(
-    Array.from(new Set(Object.keys(data1).concat(Object.keys(data2))))
-  );
+  const keys = [...new Set([...Object.keys(data1), ...Object.keys(data2)])].slice().sort();
 
   const diff = keys.map((key) => {
     if (!(key in data2)) {
