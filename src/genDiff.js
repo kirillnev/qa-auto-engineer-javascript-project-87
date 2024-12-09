@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import parseFile from './utils/fileParser.js';
 import getFormatter from './formatters/index.js';
 
@@ -7,7 +8,7 @@ const genDiff = (filepath1, filepath2, format = 'stylish') => {
 
   const formatFunction = getFormatter(format);
 
-  const keys = [...new Set([...Object.keys(data1), ...Object.keys(data2)])].sort();
+  const keys = _.sortBy([...new Set([...Object.keys(data1), ...Object.keys(data2)])]);
 
   const diff = keys.map((key) => {
     if (!(key in data2)) {
