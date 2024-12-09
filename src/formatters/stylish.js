@@ -1,5 +1,5 @@
-const formatStylish = (diff) => {
-  return ['{', ...diff
+const formatStylish = (diff) =>
+  ['{', ...diff
     .map((node) => {
       switch (node.type) {
         case 'removed':
@@ -16,6 +16,5 @@ const formatStylish = (diff) => {
     })
     .filter(Boolean), '}']
     .join('\n');
-};
 
 export default formatStylish;

@@ -1,5 +1,5 @@
-const formatPlain = (diff) => {
-  return diff
+const formatPlain = (diff) =>
+  diff
     .map((node) => {
       switch (node.type) {
         case 'removed':
@@ -14,6 +14,5 @@ const formatPlain = (diff) => {
     })
     .filter(Boolean)
     .join('\n');
-};
 
 export default formatPlain;

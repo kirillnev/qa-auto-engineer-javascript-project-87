@@ -1,5 +1,5 @@
-import genDiff from '../genDiff.js';
 import { describe, expect, test } from '@jest/globals';
+import genDiff from '../genDiff.js';
 
 describe('genDiff function', () => {
   test('returns a string with "-" and "+" for a modified key', () => {

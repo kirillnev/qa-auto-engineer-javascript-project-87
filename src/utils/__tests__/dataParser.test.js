@@ -1,9 +1,9 @@
-import parseData from '../dataParser.js';
 import { expect, test } from '@jest/globals';
+import parseData from '../dataParser.js';
 
 test('correctly parses valid JSON content', () => {
   const content = '{"key": "value"}';
-  const expected = {key: "value"};
+  const expected = { key: 'value' };
 
   expect(parseData(content, '.json')).toEqual(expected);
 });
@@ -11,7 +11,7 @@ test('correctly parses valid JSON content', () => {
 test('correctly parses valid YAML content', () => {
   const content = 'key: value\nnumber: 10';
   const expected = {
-    key: "value",
+    key: 'value',
     number: 10,
   };
 
@@ -31,4 +31,3 @@ test('throws an error for invalid JSON content', () => {
 
   expect(() => parseData(invalidJsonContent, format)).toThrow();
 });
-

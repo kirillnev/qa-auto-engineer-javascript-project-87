@@ -1,8 +1,7 @@
+import { describe, expect, test } from '@jest/globals';
 import getFormatter from '../index.js';
 import formatPlain from '../plain.js';
 import formatStylish from '../stylish.js';
-import { describe, expect, test } from '@jest/globals';
-
 
 describe('getFormatter', () => {
   test('returns formatPlain for "plain"', () => {

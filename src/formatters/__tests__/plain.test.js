@@ -1,12 +1,25 @@
-import formatPlain from '../plain.js';
 import { describe, expect, test } from '@jest/globals';
+import formatPlain from '../plain.js';
 
 describe('formatPlain', () => {
   test('formats diff with added, removed, and updated nodes', () => {
     const diff = [
-      { type: 'removed', key: 'host', value: 'hexlet.io' },
-      { type: 'added', key: 'timeout', value: 20 },
-      { type: 'updated', key: 'verbose', lastValue: true, value: false },
+      {
+        type: 'removed',
+        key: 'host',
+        value: 'hexlet.io',
+      },
+      {
+        type: 'added',
+        key: 'timeout',
+        value: 20,
+      },
+      {
+        type: 'updated',
+        key: 'verbose',
+        lastValue: true,
+        value: false,
+      },
     ];
 
     const expected = `Property 'host' was removed
