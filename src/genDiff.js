@@ -25,7 +25,9 @@ const genDiff = (filepath1, filepath2, format = 'stylish') => {
     return sortedArr;
   };
 
-  const keys = lexicographicSort([...new Set([...Object.keys(data1), ...Object.keys(data2)])]);
+  const keys = lexicographicSort(
+    Array.from(new Set(Object.keys(data1).concat(Object.keys(data2))))
+  );
 
   const diff = keys.map((key) => {
     if (!(key in data2)) {
