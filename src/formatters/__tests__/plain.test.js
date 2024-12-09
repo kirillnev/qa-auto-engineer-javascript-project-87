@@ -11,7 +11,7 @@ describe('formatPlain', () => {
 
     const expected = `Property 'host' was removed
 Property 'timeout' was added with value: 20
-Property 'verbose' was updated. From false to true`;
+Property 'verbose' was updated. From true to false`;
 
     expect(formatPlain(diff)).toBe(expected);
   });

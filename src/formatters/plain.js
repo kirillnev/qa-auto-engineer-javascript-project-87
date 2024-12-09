@@ -7,7 +7,7 @@ const formatPlain = (diff) => {
         case 'added':
           return `Property '${node.key}' was added with value: ${node.value}`;
         case 'updated':
-          return `Property '${node.key}' was updated. From ${node.value} to ${node.lastValue}`;
+          return `Property '${node.key}' was updated. From ${node.lastValue} to ${node.value}`;
         default:
           return null;
       }
