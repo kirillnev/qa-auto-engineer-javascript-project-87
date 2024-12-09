@@ -1,26 +1,17 @@
 {
   "name": "@hexlet/code",
-  "version": "0.0.3",
-  "description": "Node.js  package",
+  "version": "1.0.0",
+  "description": "Compares two configuration files and shows a difference.",
+  "main": "src/index.js",
+  "type": "module",
   "bin": {
-    "nodejs-package": "bin/gendiff.js"
-  },
-  "simple-git-hooks": {
-    "pre-push": "npx lint-staged"
-  },
-  "engines": {
-    "node": ">=14"
+    "gendiff": "bin/gendiff.js"
   },
   "scripts": {
-    "test": "npx jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hexlet-boilerplates/nodejs-package.git"
+    "test": "npx jest --passWithNoTests --coverage"
   },
   "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "debug": "^4.3.5",
     "lodash": "^4.17.21"
