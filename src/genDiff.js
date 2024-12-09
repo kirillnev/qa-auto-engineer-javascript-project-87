@@ -1,8 +1,11 @@
 import parseFile from './utils/fileParser.js';
+import getFormatter from './formatters/index.js';
 
-const genDiff = (filepath1, filepath2, formatFunction) => {
+const genDiff = (filepath1, filepath2, format='stylish') => {
   const data1 = parseFile(filepath1);
   const data2 = parseFile(filepath2);
+
+  const formatFunction = getFormatter(format);
 
   const keys = [...new Set([...Object.keys(data1), ...Object.keys(data2)])].sort();
 

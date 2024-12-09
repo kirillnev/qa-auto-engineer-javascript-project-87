@@ -1,6 +1,5 @@
 import genDiff from '../genDiff.js';
 import { describe, expect, test } from '@jest/globals';
-import formatStylish from '../formatters/stylish.js';
 
 describe('genDiff function', () => {
   test('returns a string with "-" and "+" for a modified key', () => {
@@ -15,6 +14,6 @@ describe('genDiff function', () => {
   + verbose: true
 }`;
 
-    expect(genDiff(filepath1, filepath2, formatStylish)).toBe(expected);
+    expect(genDiff(filepath1, filepath2, 'stylish')).toBe(expected);
   });
 });
