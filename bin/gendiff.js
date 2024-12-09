@@ -3,6 +3,7 @@
 import { Command } from 'commander';
 import genDiff from '../src/index.js';
 import parseFile from '../src/utils/fileParser.js';
+import getFormatter from "../src/formatters/index.js";
 
 const program = new Command();
 
@@ -17,7 +18,8 @@ program
   .action((filepath1, filepath2, options) => {
     const data1 = parseFile(filepath1);
     const data2 = parseFile(filepath2);
-    const diff = genDiff(data1, data2, options.format);
+    const formatFunction = getFormatter(options.format);
+    const diff = genDiff(data1, data2, formatFunction);
     console.log(diff);
   });
 

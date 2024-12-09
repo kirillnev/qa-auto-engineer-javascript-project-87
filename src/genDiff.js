@@ -1,20 +1,20 @@
-const genDiff = (data1, data2) => {
+const genDiff = (data1, data2, formatFunction) => {
   const keys = [...new Set([...Object.keys(data1), ...Object.keys(data2)])].sort();
 
-  const result = keys.map((key) => {
+  const diff = keys.map((key) => {
     if (!(key in data2)) {
-      return `  - ${key}: ${data1[key]}`;
+      return { key, value: data1[key], type: 'removed' };
     }
     if (!(key in data1)) {
-      return `  + ${key}: ${data2[key]}`;
+      return { key, value: data2[key], type: 'added' };
     }
     if (data1[key] !== data2[key]) {
-      return `  - ${key}: ${data1[key]}\n  + ${key}: ${data2[key]}`;
+      return { key, value: data2[key], lastValue: data1[key], type: 'updated' };
     }
-    return `    ${key}: ${data1[key]}`;
+    return { key, value: data1[key], type: 'unchanged' };
   });
 
-  return `{\n${result.join('\n')}\n}`;
+  return formatFunction(diff);
 };
 
 export default genDiff;
