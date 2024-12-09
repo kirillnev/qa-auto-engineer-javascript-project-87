@@ -1,9 +1,9 @@
 {
-  "name": "@hexlet/nodejs-package",
+  "name": "@hexlet/code",
   "version": "0.0.3",
-  "description": "Node.js boilerplate package",
+  "description": "Node.js  package",
   "bin": {
-    "nodejs-package": "bin/nodejs-package.js"
+    "nodejs-package": "bin/gendiff.js"
   },
   "simple-git-hooks": {
     "pre-push": "npx lint-staged"
@@ -18,13 +18,9 @@
     "type": "git",
     "url": "git+https://github.com/hexlet-boilerplates/nodejs-package.git"
   },
-  "author": "Kirill Mokevnin",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hexlet-boilerplates/nodejs-package/issues"
-  },
   "type": "module",
-  "homepage": "https://github.com/hexlet-boilerplates/nodejs-package#readme",
   "dependencies": {
     "debug": "^4.3.5",
     "lodash": "^4.17.21"
