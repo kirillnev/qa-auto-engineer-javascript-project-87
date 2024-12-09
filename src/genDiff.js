@@ -7,7 +7,7 @@ const genDiff = (filepath1, filepath2, format = 'stylish') => {
 
   const formatFunction = getFormatter(format);
 
-  const keys = [...new Set([...Object.keys(data1), ...Object.keys(data2)])].slice().sort();
+  const keys = [...new Set([...Object.keys(data1), ...Object.keys(data2)])].slice().toSorted();
 
   const diff = keys.map((key) => {
     if (!(key in data2)) {
